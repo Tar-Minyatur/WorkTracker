@@ -2,3 +2,4 @@ de.tshw.worktracker
 de.tshw.worktracker.controller
 de.tshw.worktracker.dao
 de.tshw.worktracker.model
+de.tshw.worktracker.view
