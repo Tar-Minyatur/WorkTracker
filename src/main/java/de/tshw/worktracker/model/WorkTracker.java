@@ -1,38 +1,43 @@
 /******************************************************************************
  * This file is part of WorkTracker, Copyright (c) 2015 Till Helge Helwig.    *
  *                                                                            *
- * WorkTracker is distributed under the MIT License (MIT), so feel free       *
- * to do whatever you want with this code. You may notify the author about    *
- * bugs via http://github.com/Tar-Minyatur/WorkTracker/issues, but be aware   *
- * that he is not (legally) obligated to provide support. You are using       *
- * this software at your own risk.                                            *
+ * WorkTracker is distributed under the MIT License, so feel free to do       *
+ * whatever you want with application or code. You may notify the author      *
+ * about bugs via http://github.com/Tar-Minyatur/WorkTracker/issues, but      *
+ * be aware that he is not (legally) obligated to provide support. You are    *
+ * using this software at your own risk.                                      *
  ******************************************************************************/
 
 package de.tshw.worktracker.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class WorkTracker {
 
-	private final Project           pauseProject;
-	private       Set<Project>      projects;
-	private       WorkLogEntry      currentLogEntry;
-	private       Set<WorkLogEntry> unfininishedLogEntries;
+	public static final String VERSION = "1.0";
+
+	private final Project                 pauseProject;
+	private       SortedSet<Project>      projects;
+	private       WorkLogEntry            currentLogEntry;
+	private       Set<WorkLogEntry>       unfinishedLogEntries;
+	private       SortedSet<WorkLogEntry> todaysWorkLogEntries;
 
 	public WorkTracker( Project pauseProject ) {
-		this.projects = new HashSet<>();
+		this.projects = new TreeSet<>();
 		this.pauseProject = pauseProject;
 		this.currentLogEntry = new WorkLogEntry(pauseProject);
-		this.unfininishedLogEntries = new HashSet<>();
+		this.unfinishedLogEntries = new HashSet<>();
+		this.todaysWorkLogEntries = new TreeSet<>();
+		this.todaysWorkLogEntries.add(this.currentLogEntry);
 	}
 
 	public WorkLogEntry getCurrentLogEntry() {
 		return currentLogEntry;
 	}
 
-	public void setCurrentLogEntry( WorkLogEntry currentLogEntry ) {
-		this.currentLogEntry = currentLogEntry;
+	public void setCurrentLogEntry( WorkLogEntry entry ) {
+		this.currentLogEntry = entry;
+		todaysWorkLogEntries.add(entry);
 	}
 
 	public void addProject( Project project ) {
@@ -40,18 +45,30 @@ public class WorkTracker {
 	}
 
 	public Set<Project> getProjects() {
-		return projects;
+		return Collections.unmodifiableSortedSet(projects);
 	}
 
-	public Set<WorkLogEntry> getUnfininishedLogEntries() {
-		return unfininishedLogEntries;
+	public Set<WorkLogEntry> getUnfinishedLogEntries() {
+		return unfinishedLogEntries;
 	}
 
-	public void addUnfininishedLogEntries( WorkLogEntry entry ) {
-		unfininishedLogEntries.add(entry);
+	public void addUnfinishedLogEntries( WorkLogEntry entry ) {
+		unfinishedLogEntries.add(entry);
 	}
 
 	public Project getPauseProject() {
 		return pauseProject;
+	}
+
+	public void addWorkLogEntry( WorkLogEntry entry ) {
+		todaysWorkLogEntries.add(entry);
+	}
+
+	public SortedSet<WorkLogEntry> getTodaysWorkLogEntries() {
+		return Collections.unmodifiableSortedSet(todaysWorkLogEntries);
+	}
+
+	public void removeWorkLogEntry( WorkLogEntry entry ) {
+		todaysWorkLogEntries.remove(entry);
 	}
 }

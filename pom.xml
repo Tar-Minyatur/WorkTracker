@@ -2,15 +2,15 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ~ This file is part of WorkTracker, Copyright (c) 2015 Till Helge Helwig.   ~
   ~                                                                           ~
-  ~ WorkTracker is distributed under the MIT License (MIT), so feel free      ~
-  ~ to do whatever you want with this code. You may notify the author about   ~
-  ~ bugs via http://github.com/Tar-Minyatur/WorkTracker/issues, but be aware  ~
-  ~ that he is not (legally) obligated to provide support. You are using      ~
-  ~ this software at your own risk.                                           ~
+  ~ WorkTracker is distributed under the MIT License, so feel free to do      ~
+  ~ whatever you want with application or code. You may notify the author     ~
+  ~ about bugs via http://github.com/Tar-Minyatur/WorkTracker/issues, but     ~
+  ~ be aware that he is not (legally) obligated to provide support. You are   ~
+  ~ using this software at your own risk.                                     ~
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,7 +21,7 @@
 
     <name>WorkTracker</name>
     <description>
-        A fairly simple and straight-forwards time tracking util that can be used to keep track of your
+        A fairly simple and straight-forward time tracking util that can be used to keep track of your
         daily working hours. The focus lies on a very simple and unobtrusive interface that allows switching
         between projects with a single click. In addition there is a browser to take a closer look at all
         recorded time entries.

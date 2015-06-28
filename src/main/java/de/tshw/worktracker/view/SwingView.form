@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="de.tshw.worktracker.view.SwingView">
+  <grid id="27dc6" binding="workTrackerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="324" height="364"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <splitpane id="6c6d5">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <continuousLayout value="false"/>
+          <dividerSize value="0"/>
+          <enabled value="false"/>
+          <orientation value="0"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="9ebbe" binding="incompleteEntriesPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties>
+              <background color="-22670"/>
+            </properties>
+            <border type="empty">
+              <size top="8" left="8" bottom="8" right="8"/>
+            </border>
+            <children>
+              <component id="8b30" class="javax.swing.JLabel" binding="incompleteEntriesHint">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="icons/exclamation.png"/>
+                  <opaque value="false"/>
+                  <text value="&lt;html&gt;These time entries have not been completed:&lt;/html&gt;"/>
+                  <verticalAlignment value="1"/>
+                  <verticalTextPosition value="1"/>
+                </properties>
+              </component>
+              <scrollpane id="3b399">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="300" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-22670"/>
+                  <opaque value="false"/>
+                </properties>
+                <border type="line">
+                  <color color="-16777216"/>
+                </border>
+                <children>
+                  <component id="92cd9" class="javax.swing.JTable" binding="incompleteEntriesTable">
+                    <constraints/>
+                    <properties>
+                      <background color="-22670"/>
+                      <opaque value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <toolbar id="82932">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-22670"/>
+                  <borderPainted value="false"/>
+                  <enabled value="true"/>
+                  <floatable value="false"/>
+                  <opaque value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="146a8" class="javax.swing.JButton" binding="deleteIncompleteEntryButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="icons/time_delete.png"/>
+                      <opaque value="true"/>
+                      <text value=""/>
+                      <toolTipText value="Delete selected entry"/>
+                    </properties>
+                  </component>
+                  <component id="91271" class="javax.swing.JButton" binding="editIncompleteEntryButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="icons/time_edit.png"/>
+                      <opaque value="true"/>
+                      <text value=""/>
+                      <toolTipText value="Edit selected entry"/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+            </children>
+          </grid>
+          <grid id="e0028" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties/>
+            <border type="empty">
+              <size top="8" left="8" bottom="8" right="8"/>
+            </border>
+            <children>
+              <scrollpane id="300fa" binding="tableScrollPane">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="300" height="200"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="line">
+                  <size top="8" left="8" bottom="8" right="8"/>
+                  <color color="-16777216"/>
+                </border>
+                <children>
+                  <component id="88c38" class="javax.swing.JTable" binding="entriesTable">
+                    <constraints/>
+                    <properties>
+                      <autoCreateRowSorter value="false"/>
+                      <focusable value="false"/>
+                      <intercellSpacing width="0" height="0"/>
+                      <requestFocusEnabled value="false"/>
+                      <showHorizontalLines value="true"/>
+                      <showVerticalLines value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="526fe" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="icons/time.png"/>
+                  <text value="Total Time Today:"/>
+                </properties>
+              </component>
+              <component id="c1745" class="javax.swing.JLabel" binding="totalTimeTodayLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="4"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </splitpane>
+      <toolbar id="73f9f" binding="bottomToolBar">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <floatable value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="4dc69" class="javax.swing.JButton" binding="addProjectButton">
+            <constraints/>
+            <properties>
+              <icon value="icons/project_add.png"/>
+              <text value=""/>
+              <toolTipText value="Add New Project"/>
+            </properties>
+          </component>
+          <component id="572ae" class="javax.swing.JToolBar$Separator">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="d630e" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <icon value="icons/comment.png"/>
+              <labelFor value="9ea0"/>
+              <text value=" "/>
+              <toolTipText value="Add/Change Comment"/>
+            </properties>
+          </component>
+          <grid id="c5c36" binding="commentFieldPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="1" left="1" bottom="1" right="1"/>
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+            </properties>
+            <border type="bevel-lowered"/>
+            <children>
+              <component id="9ea0" class="javax.swing.JTextField" binding="commentTextField">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <opaque value="false"/>
+                  <toolTipText value="Add/Edit comment for current work log entry"/>
+                </properties>
+              </component>
+              <component id="a24c7" class="javax.swing.JLabel" binding="commentConfirmLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="16" height="16"/>
+                    <preferred-size width="16" height="16"/>
+                    <maximum-size width="16" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                  <icon value="icons/confirmed.png"/>
+                  <text value=""/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="c79f0" class="javax.swing.JLabel" binding="commentFieldPlaceholder">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                  <font swing-font="TextField.font"/>
+                  <text value="Add a comment..."/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="92b49" class="javax.swing.JToolBar$Separator">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="3e40d" class="javax.swing.JButton" binding="dataBrowserButton">
+            <constraints/>
+            <properties>
+              <icon value="icons/table.png"/>
+              <text value=""/>
+              <toolTipText value="Open project and work log manager"/>
+            </properties>
+          </component>
+          <component id="26bfb" class="javax.swing.JToolBar$Separator">
+            <constraints/>
+            <properties/>
+          </component>
+          <component id="37570" class="javax.swing.JButton" binding="infoButton">
+            <constraints/>
+            <properties>
+              <icon value="icons/information.png"/>
+              <inheritsPopupMenu value="false"/>
+              <text value=""/>
+              <toolTipText value="About WorkTracker"/>
+            </properties>
+          </component>
+          <component id="f0089" class="javax.swing.JButton" binding="quitButton">
+            <constraints/>
+            <properties>
+              <icon value="icons/door.png"/>
+              <text value=""/>
+              <toolTipText value="Quit"/>
+            </properties>
+          </component>
+        </children>
+      </toolbar>
+    </children>
+  </grid>
+</form>
