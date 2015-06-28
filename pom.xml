@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ This file is part of WorkTracker, Copyright (c) 2015 Till Helge Helwig.   ~
+  ~                                                                           ~
+  ~ WorkTracker is distributed under the MIT License (MIT), so feel free      ~
+  ~ to do whatever you want with this code. You may notify the author about   ~
+  ~ bugs via http://github.com/Tar-Minyatur/WorkTracker/issues, but be aware  ~
+  ~ that he is not (legally) obligated to provide support. You are using      ~
+  ~ this software at your own risk.                                           ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -18,6 +28,18 @@
     </description>
     <url>http://tar-minyatur.github.io</url>
     <inceptionYear>2015</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://raw.githubusercontent.com/Tar-Minyatur/WorkTracker/master/LICENSE</url>
+            <comments>
+                Use this code in whatever way you want, but please don't remove the copyright notice and always
+                include the license when re-distributing.
+            </comments>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
