@@ -10,7 +10,10 @@
 
 package de.tshw.worktracker.dao;
 
+import de.tshw.worktracker.model.Project;
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,6 +25,7 @@ public class DatabaseMaintainer {
 		Statement statement = connection.createStatement();
 		createProjectTable(statement);
 		createWorkLogEntryTable(statement);
+		createDefaultEntries(connection);
 	}
 
 	private void createProjectTable( Statement statement ) {
@@ -49,6 +53,19 @@ public class DatabaseMaintainer {
 		}
 		catch (SQLException ex) {
 			this.log("Table 'WorkLogEntry' already exists. (Error: " + ex.getMessage() + ")");
+		}
+	}
+
+	private void createDefaultEntries( Connection connection ) {
+		try {
+			this.log("Creating default entry in table 'Project'...");
+			String sql = "INSERT INTO Project (name) VALUES (?)";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, Project.PAUSE_PROJECT_NAME);
+			statement.execute();
+		}
+		catch (SQLException ex) {
+			this.log("Default entry in table 'Project' already exists. (Error: " + ex.getMessage() + ")");
 		}
 	}
 

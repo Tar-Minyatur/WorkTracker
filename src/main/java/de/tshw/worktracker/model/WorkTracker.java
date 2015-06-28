@@ -15,12 +15,16 @@ import java.util.Set;
 
 public class WorkTracker {
 
-	private Set<Project> projects;
-	private WorkLogEntry currentLogEntry;
+	private final Project           pauseProject;
+	private       Set<Project>      projects;
+	private       WorkLogEntry      currentLogEntry;
+	private       Set<WorkLogEntry> unfininishedLogEntries;
 
-	public WorkTracker() {
-		this.projects = new HashSet<Project>();
-		this.currentLogEntry = null;
+	public WorkTracker( Project pauseProject ) {
+		this.projects = new HashSet<>();
+		this.pauseProject = pauseProject;
+		this.currentLogEntry = new WorkLogEntry(pauseProject);
+		this.unfininishedLogEntries = new HashSet<>();
 	}
 
 	public WorkLogEntry getCurrentLogEntry() {
@@ -39,14 +43,15 @@ public class WorkTracker {
 		return projects;
 	}
 
-	public WorkLogEntry switchProject( Project project ) {
-		if ( this.currentLogEntry != null ) {
-			this.currentLogEntry.stop();
-		}
+	public Set<WorkLogEntry> getUnfininishedLogEntries() {
+		return unfininishedLogEntries;
+	}
 
-		WorkLogEntry newLogEntry = new WorkLogEntry(project);
-		this.currentLogEntry = newLogEntry;
+	public void addUnfininishedLogEntries( WorkLogEntry entry ) {
+		unfininishedLogEntries.add(entry);
+	}
 
-		return newLogEntry;
+	public Project getPauseProject() {
+		return pauseProject;
 	}
 }

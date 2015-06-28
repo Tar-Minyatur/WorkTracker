@@ -82,4 +82,10 @@ public class WorkLogEntry extends Entity {
 	public void stop() {
 		this.endTime = LocalDateTime.now();
 	}
+
+	@Override
+	public String toString() {
+		return this.project.getName() + " (" + startTime + " - " + ( ( endTime == null ) ? "?" : endTime ) + ": " +
+			   comment;
+	}
 }

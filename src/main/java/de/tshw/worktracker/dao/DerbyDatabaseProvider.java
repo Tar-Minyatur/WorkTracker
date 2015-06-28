@@ -25,7 +25,7 @@ public class DerbyDatabaseProvider implements DatabaseProvider {
 		this.dbURL = DEFAULT_DB_URL;
 	}
 
-	DerbyDatabaseProvider( String databaseName ) {
+	public DerbyDatabaseProvider( String databaseName ) {
 		this.dbURL = "jdbc:derby:" + databaseName + ";create=true";
 	}
 

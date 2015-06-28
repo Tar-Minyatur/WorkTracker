@@ -8,33 +8,11 @@
  * this software at your own risk.                                            *
  ******************************************************************************/
 
-package de.tshw.worktracker.model;
+package de.tshw.worktracker.view;
 
-public class Project extends Entity {
+import de.tshw.worktracker.model.WorkTracker;
 
-	public static final String PAUSE_PROJECT_NAME = "Idling / Break";
+public interface WorkTrackerView {
 
-	private String name;
-
-	public Project() {
-		super();
-	}
-
-	public Project( String name ) {
-		super();
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName( String name ) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return this.name;
-	}
+	void update( WorkTracker workTracker );
 }

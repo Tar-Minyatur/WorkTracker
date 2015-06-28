@@ -240,7 +240,7 @@ public abstract class DataAccessObject<T extends Entity> {
 				PreparedStatement statement = connection.prepareStatement(getSelectByIdStatement());
 				statement.setLong(1, id);
 				ResultSet result = statement.executeQuery();
-				if ( !result.wasNull() ) {
+				if ( result.next() ) {
 					entity = this.getEntityFromResultSet(result);
 				}
 			}

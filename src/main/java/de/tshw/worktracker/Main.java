@@ -10,13 +10,13 @@
 
 package de.tshw.worktracker;
 
+import de.tshw.worktracker.controller.WorkTrackerController;
 import de.tshw.worktracker.dao.*;
 import de.tshw.worktracker.model.Project;
-import de.tshw.worktracker.model.WorkLogEntry;
-import org.joda.time.LocalDate;
+import de.tshw.worktracker.model.WorkTracker;
+import de.tshw.worktracker.view.SimpleConsoleView;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class Main {
 
@@ -30,37 +30,15 @@ public class Main {
 		ProjectDAO projectDAO = new ProjectDAO(dbProvider);
 		WorkLogEntryDAO workLogEntryDAO = new WorkLogEntryDAO(dbProvider, projectDAO);
 
-		Project project = projectDAO.findByName("Testel 3");
-		if ( project == null ) {
-			project = new Project("Testel 3");
-		}
-		WorkLogEntry entry = new WorkLogEntry(project);
-		workLogEntryDAO.save(entry);
+		Project pauseProject = projectDAO.findByName(Project.PAUSE_PROJECT_NAME);
 
-		List<Project> projects = projectDAO.getAll();
+		WorkTracker workTracker = new WorkTracker(pauseProject);
+		WorkTrackerController controller = new WorkTrackerController(workTracker, projectDAO, workLogEntryDAO);
 
-		for ( Project p : projects ) {
-			System.out.println("Project: " + p.getName());
-		}
+		controller.registerView(new SimpleConsoleView());
 
-
-		List<WorkLogEntry> entries = workLogEntryDAO.findByDay(LocalDate.now());
-
-		System.out.println("ALL ENTRIES:");
-		for ( WorkLogEntry e : entries ) {
-			System.out.println(
-					"Entry: " + e.getProject().getName() + " von " + e.getStartTime() + " bis " + e.getEndTime() +
-					" (" + e.getComment() + ")");
-		}
-
-		entries = workLogEntryDAO.findWithoutEndDate();
-
-		System.out.println("INCOMPLETE ENTRIES:");
-		for ( WorkLogEntry e : entries ) {
-			System.out.println(
-					"Entry: " + e.getProject().getName() + " von " + e.getStartTime() + " bis " + e.getEndTime() +
-					" (" + e.getComment() + ")");
-		}
+		Project project = controller.addProject("Test 1");
+		controller.switchProject(project);
 	}
 
 }
