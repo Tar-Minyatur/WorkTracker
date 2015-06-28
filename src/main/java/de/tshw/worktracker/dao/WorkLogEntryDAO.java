@@ -87,11 +87,11 @@ public class WorkLogEntryDAO extends DataAccessObject<WorkLogEntry> {
 	@Override
 	protected void setInsertUpdateParameters( PreparedStatement statement, WorkLogEntry entity ) throws SQLException {
 		statement.setLong(1, entity.getProject().getId());
-		statement.setDate(2, new Date(entity.getStartTime().toDate().getTime()));
+		statement.setTimestamp(2, new Timestamp(entity.getStartTime().toDate().getTime()));
 		if ( entity.getEndTime() == null ) {
 			statement.setNull(3, Types.DATE);
 		} else {
-			statement.setDate(3, new Date(entity.getEndTime().toDate().getTime()));
+			statement.setTimestamp(3, new Timestamp(entity.getEndTime().toDate().getTime()));
 		}
 		if ( entity.getComment() == null ) {
 			statement.setNull(4, Types.VARCHAR);
