@@ -99,13 +99,17 @@ public class TimeEntriesTableModel extends AbstractTableModel {
 			if ( entry.getStartTime().toLocalDate().toDateTimeAtStartOfDay().equals(
 					LocalDate.now().toDateTimeAtStartOfDay()) ) {
 				newTimes.get(entry.getProject()).add(entry.getTimeElapsed());
-				totalTimeToday.add(entry.getTimeElapsed());
+				if ( !entry.getProject().equals(workTracker.getPauseProject()) ) {
+					totalTimeToday.add(entry.getTimeElapsed());
+				}
 			}
 		}
 		WorkLogEntry entry = workTracker.getCurrentLogEntry();
 		Period period = new Period(entry.getStartTime(), LocalDateTime.now());
 		newTimes.get(entry.getProject()).add(period);
-		totalTimeToday.add(period);
+		if ( !entry.getProject().equals(workTracker.getPauseProject()) ) {
+			totalTimeToday.add(period);
+		}
 
 		for ( Project p : newTimes.keySet() ) {
 			elapsedTimes.put(p, newTimes.get(p).toPeriod());
