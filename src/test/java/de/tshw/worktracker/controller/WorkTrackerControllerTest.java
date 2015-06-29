@@ -55,14 +55,16 @@ public class WorkTrackerControllerTest {
 	}
 
 	@Test
-	public void canSwitchProject() {
+	public void canSwitchProject() throws InterruptedException {
 		WorkLogEntry previousEntry = workTracker.getCurrentLogEntry();
 		Project oldProject = previousEntry.getProject();
 		Project newProject = new Project("New Project");
+		Thread.sleep(1000);
 		controller.switchProject(newProject);
 		Assert.assertThat(previousEntry.isRunning(), is(false));
 		Assert.assertThat(workTracker.getCurrentLogEntry().getProject(), is(newProject));
-		WorkLogEntry entry = workLogEntryDAO.findById(previousEntry.getId());
+		long id = previousEntry.getId();
+		WorkLogEntry entry = workLogEntryDAO.findById(id);
 		Assert.assertThat(entry.isRunning(), is(false));
 		Assert.assertThat(entry.getProject(), is(oldProject));
 	}
