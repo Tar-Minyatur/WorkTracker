@@ -10,13 +10,7 @@
 
 package de.tshw.worktracker.view;
 
-import de.tshw.worktracker.model.WorkTracker;
-
-import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.net.URL;
 
 public class SwingViewHelper {
 
@@ -36,38 +30,5 @@ public class SwingViewHelper {
 				component.setVisible(false);
 			}
 		}).start();
-	}
-
-	void showAboutDialog( Component parent, SwingView swingView ) {
-		URL aboutScreenUrl = swingView.getClass().getResource("/html/about.html");
-		if ( aboutScreenUrl != null ) {
-			try {
-				File file = new File(aboutScreenUrl.toURI());
-				FileInputStream stream = new FileInputStream(file);
-				byte[] data = new byte[(int) file.length()];
-				stream.read(data);
-				stream.close();
-				String aboutHTML = new String(data, "UTF-8");
-				aboutHTML = aboutHTML.replace("%version%", WorkTracker.VERSION);
-				aboutHTML = aboutHTML.replace("\n", "");
-				aboutHTML = aboutHTML.replace("\t", "");
-				URL iconUrl = swingView.getClass().getResource("/icons/logo.png");
-				ImageIcon icon = null;
-				if ( iconUrl != null ) {
-					icon = new ImageIcon(iconUrl);
-					int newWidth = 150;
-					int newHeight = Math.round(
-							icon.getIconHeight() * ( (float) newWidth / (float) icon.getIconWidth() ));
-					Image newImage = icon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-					icon = new ImageIcon(newImage);
-				}
-				JOptionPane.showMessageDialog(parent,
-											  aboutHTML, "Info!",
-											  JOptionPane.INFORMATION_MESSAGE, icon);
-			}
-			catch (Exception ex) {
-				System.err.println("Something failed:_" + ex.getMessage());
-			}
-		}
 	}
 }

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="de.tshw.worktracker.view.SwingViewAboutDialog">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="1165" y="54" width="460" height="534"/>
+    </constraints>
+    <properties>
+      <preferredSize width="502" height="550"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="75788" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d02c7" class="javax.swing.JTextPane">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <font size="12" style="1"/>
+              <foreground color="-10707498"/>
+              <opaque value="false"/>
+              <text value="Acknowledgements:"/>
+            </properties>
+          </component>
+          <component id="f10de" class="javax.swing.JTextPane" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="2" use-parent-layout="false">
+                <preferred-size width="450" height="-1"/>
+                <maximum-size width="500" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <text value="This project could not exist without amazing open source projects to rely on and public domain resources that make a developer's life so much easier. Kudos to:"/>
+            </properties>
+          </component>
+          <component id="f2918" class="javax.swing.JLabel" binding="jodaTimeLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="4" fill="0" indent="3" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font style="1"/>
+              <horizontalTextPosition value="2"/>
+              <icon value="icons/world.png"/>
+              <iconTextGap value="6"/>
+              <text value="JodaTime"/>
+            </properties>
+          </component>
+          <component id="53366" class="javax.swing.JTextPane">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <text value="Thanks for freeing me from java.util.Calendar and java.util.Date!"/>
+            </properties>
+          </component>
+          <component id="6a792" class="javax.swing.JLabel" binding="famfamfamLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="3" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font style="1"/>
+              <horizontalTextPosition value="2"/>
+              <icon value="icons/world.png"/>
+              <iconTextGap value="6"/>
+              <text value="famfamfam.com"/>
+            </properties>
+          </component>
+          <component id="a6681" class="javax.swing.JTextPane">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <text value="Still the best free icon set out there."/>
+            </properties>
+          </component>
+          <component id="e377d" class="javax.swing.JTextPane" default-binding="true">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="2" use-parent-layout="false">
+                <preferred-size width="450" height="-1"/>
+                <maximum-size width="500" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <text value="The rest of what you're seeing here is brought to you by JavaDB, Maven, JUnit, yWorks yEd and probably more projects, which I forgot to mention. Sorry!"/>
+            </properties>
+          </component>
+          <component id="b865c" class="javax.swing.JTextPane">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusable value="false"/>
+              <font size="12" style="1"/>
+              <foreground color="-10707498"/>
+              <opaque value="false"/>
+              <text value="License &amp; Distribution:"/>
+            </properties>
+          </component>
+          <component id="cae3b" class="javax.swing.JTextPane" default-binding="true">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="2" use-parent-layout="false">
+                <preferred-size width="450" height="-1"/>
+                <maximum-size width="500" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <focusCycleRoot value="true"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <text value="WorkTracker is distributed under the MIT License, so feel free to do whatever you want with it. You may notify the author about bugs via the issue tracker on GitHub, but be aware that he is not (legally) obligated to provide support. You are using this software at your own risk."/>
+            </properties>
+          </component>
+          <vspacer id="6e75a">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="e7465" class="javax.swing.JButton" binding="buttonOK">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="&amp;Close"/>
+              <icon value="icons/door.png"/>
+              <text value="&amp;Close"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="fc0a0" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="61c6e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <focusable value="false"/>
+              <font size="16" style="1"/>
+              <foreground color="-10707498"/>
+              <horizontalAlignment value="0"/>
+              <text value="WorkTracker"/>
+            </properties>
+          </component>
+          <vspacer id="64a79">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+                <preferred-size width="234" height="14"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="1e8d1">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+                <preferred-size width="234" height="14"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="539ae">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+                <preferred-size width="234" height="14"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <hspacer id="876c">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="522bb">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <grid id="5a0d8" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="5" left="5" bottom="5" right="5"/>
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="line">
+              <color color="-10707498"/>
+            </border>
+            <children>
+              <component id="cc37c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusable value="false"/>
+                  <font style="1"/>
+                  <horizontalAlignment value="4"/>
+                  <text value="Version:"/>
+                </properties>
+              </component>
+              <component id="e3a3a" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusable value="false"/>
+                  <font style="1"/>
+                  <horizontalAlignment value="4"/>
+                  <text value="Author:"/>
+                </properties>
+              </component>
+              <component id="f8546" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusable value="false"/>
+                  <font swing-font="TextPane.font"/>
+                  <text value="1.1"/>
+                </properties>
+              </component>
+              <component id="c7acb" class="javax.swing.JLabel" binding="authorLabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font swing-font="TextPane.font"/>
+                  <horizontalAlignment value="2"/>
+                  <horizontalTextPosition value="2"/>
+                  <icon value="icons/email.png"/>
+                  <iconTextGap value="6"/>
+                  <text value="Till Helge Helwig"/>
+                </properties>
+              </component>
+              <component id="4aca8" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <focusTraversalPolicyProvider value="false"/>
+                  <focusable value="false"/>
+                  <font style="1"/>
+                  <horizontalAlignment value="4"/>
+                  <text value="Homepage:"/>
+                </properties>
+              </component>
+              <component id="30ba9" class="javax.swing.JLabel" binding="homepageLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font swing-font="TextPane.font"/>
+                  <horizontalTextPosition value="2"/>
+                  <icon value="icons/world.png"/>
+                  <iconTextGap value="6"/>
+                  <text value="tar-minyatur.github.io"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="71a52" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="5" bottom="5" right="5"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="7be99" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icons/logo.png"/>
+              <iconTextGap value="0"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

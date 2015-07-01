@@ -174,9 +174,7 @@ public class SwingView implements WorkTrackerView {
 										  "Missing Feature!", JOptionPane.ERROR_MESSAGE);
 		});
 
-		infoButton.addActionListener(( ActionEvent e ) -> {
-			swingViewHelper.showAboutDialog(workTrackerPanel, this);
-		});
+		infoButton.addActionListener(e -> new SwingViewAboutDialog(frame).setVisible(true));
 
 		quitButton.addActionListener(( ActionEvent e ) -> {
 			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));

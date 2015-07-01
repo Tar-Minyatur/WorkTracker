@@ -14,7 +14,7 @@ import java.util.*;
 
 public class WorkTracker {
 
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "1.1";
 
 	private final Project                 pauseProject;
 	private       SortedSet<Project>      projects;
