@@ -1,0 +1,7 @@
+target/
+WorkTrackerTest/
+dbMaintainerTest/
+WorkTrackerDB/
+.idea/
+WorkTracker.iml
+derby.log
