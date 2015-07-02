@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
         <title>TSHW &ndash; WorkTracker</title>
         <link rel="stylesheet" type="text/css" media="screen" href="http://tar-minyatur.github.io/css/screen.css" />
     </head>
@@ -9,14 +10,36 @@
         <header>
             <h1>TSHW</h1>
             <h2>WorkTracker</h2>
-            <a href="/" class="back">back</a>
+            <a href="/" class="back" title="Return to the previous page">back</a>
+            <nav class="mobile-menu">
+                <i>&nbsp;</i>
+                <ul class="mobile-menu">
+                    <li><a href="#top" 
+                           title="Jump to the start of the page">
+                        Start of the Page</a></li>
+                    <li><a href="#features" 
+                           title="Jump to the feature list">
+                        Features</a></li>
+                    <li><a href="#screenshots" 
+                           title="Jump to the screenshots">
+                        Screenshots</a></li>
+                    <li><a href="#download" 
+                           title="Jump to the download and bugreport links">
+                        Download &amp; Bugreport</a></li>
+                    <li class="menu-entry-back">
+                        <a href="#top" 
+                           title="Return to the previous page">
+                        Back</a></li>
+                </ul>
+            </nav>
             <div>
                 <h3>Code &amp; Stuff by Till Helge <span>&ldquo;Tar-Minyatur&rdquo;</span> Helwig</h3>
                 <p>Simple and lightweight &ndash; these are the main goals I had in mind when I started writing this time tracking tool. I wanted to create something that helps me keep track of what I'm doing all day without having to change much about my workflow. It turns out that this project is also a lot of fun and thus has become my private software development playground.</p>
             </div>
         </header>
         <section>
-            <p>Here is a quick overview of the features offered by WorkTracker:</p>
+            <h3>Features</h3>
+            <p><a name="features"></a>Here is a quick overview of the features offered by WorkTracker:</p>
             <ul>
                 <li>
                     <h4>Single-Click-Interface</h4>
@@ -37,7 +60,8 @@
             </ul>
         </section>
         <section class="right">
-            <p>Here are some screenshots to convince you of the simplicity:</p>
+            <h3>Screenhots</h3>
+            <p><a name="screenshots"></a>Here are some screenshots to convince you of the simplicity:</p>
             <ul>
                 <li>
                     <h4>Main Window</h4>
@@ -49,9 +73,25 @@
                 </li>
             </ul>
         </section>
+        <section>
+            <h3>Download</h3>
+            <p><a name="download"></a>WorkTracker is distributed under the <a href="https://raw.githubusercontent.com/Tar-Minyatur/WorkTracker/master/LICENSE" title="Check out the text of the MIT License">MIT License</a> and thus you may download and use it for free!</p>
+            <ul>
+                <li>
+                    <h4><a href="http://github.com/Tar-Minyatur/WorkTracker/releases/latest" title="Open the  latest release on GitHub">Download WorkTracker</a></h4>
+                    Find the latest version on the GitHub release page, download the correct file for your operating system and unzip it to where you want the application to live and store its data.
+                </li>
+                <li>
+                    <h4><a href="http://github.com/Tar-Minyatur/WorkTracker/issues" title="Open the GitHub issue tracker">Report a Bug</a></h4>
+                    Here you can report any bugs, if you find any. Also, feel free to submit ideas for improvements and new features.
+                </li>
+            </ul>
+            <p>If you want to anything else with it or the source code, be my guest. Note, however, that I am in no way (legally) obliged to provide support or responsible for any problems you might encounter.</p>
+            
+        </section>
         <footer>
-            <span>&copy; 2015 <a href="http://tshw.de">Till Helge Helwig | tshw.de</a></span> &ndash;
-            <span>Proudly hosted by <a href="http://github.com/Tar-Minyatur">GitHub</a></span>
+            <span>&copy; 2015 <a href="http://tshw.de" title="Check out tshw.de">Till Helge Helwig | tshw.de</a></span> &ndash;
+            <span>Proudly hosted by <a href="http://github.com/Tar-Minyatur" title="Check out GitHub">GitHub</a></span>
         </footer>
     </body>
 </html>
