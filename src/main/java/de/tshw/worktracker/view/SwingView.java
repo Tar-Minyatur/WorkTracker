@@ -40,7 +40,7 @@ public class SwingView implements WorkTrackerView {
 	private JButton               editIncompleteEntryButton;
 	private JLabel                totalTimeTodayLabel;
 	private JTextField            commentTextField;
-	private JButton               quitButton;
+	private JButton    operationsButton;
 	private JButton               infoButton;
 	private JButton               dataBrowserButton;
 	private JLabel                commentConfirmLabel;
@@ -49,6 +49,7 @@ public class SwingView implements WorkTrackerView {
 	private WorkTracker           workTracker;
 	private WorkTrackerController controller;
 	private JFrame                frame;
+	private JPopupMenu operationsMenu;
 
 	private ResourceBundle resourceBundle;
 
@@ -182,8 +183,36 @@ public class SwingView implements WorkTrackerView {
 
 		infoButton.addActionListener(e -> new SwingViewAboutDialog(frame).setVisible(true));
 
-		quitButton.addActionListener(( ActionEvent e ) -> {
+		// Operations Menu
+		operationsMenu = new JPopupMenu();
+		// -> Settings
+		JMenu settingsMenu = new JMenu(resourceBundle.getString("operations.menu.settings"));
+		settingsMenu.setMnemonic(resourceBundle.getString("operations.menu.settings.mnemonic").toCharArray()[0]);
+		settingsMenu.setIcon(new ImageIcon(getClass().getResource("/icons/wrench_orange.png")));
+		// ---> Not implemented
+		JMenuItem menuItem = new JMenuItem(resourceBundle.getString("missing.feature"));
+		menuItem.setEnabled(false);
+		settingsMenu.add(menuItem);
+		operationsMenu.add(settingsMenu);
+		// ---------------------
+		operationsMenu.add(new JPopupMenu.Separator());
+		// -> Quit
+		menuItem = new JMenuItem(resourceBundle.getString("operations.menu.quit"));
+		menuItem.setMnemonic(resourceBundle.getString("operations.menu.quit.mnemonic").toCharArray()[0]);
+		menuItem.setIcon(new ImageIcon(getClass().getResource("/icons/door.png")));
+		menuItem.addActionListener(( ActionEvent e ) -> {
 			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+		});
+		operationsMenu.add(menuItem);
+
+		operationsButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked( MouseEvent e ) {
+				super.mouseClicked(e);
+				operationsMenu.setInvoker(e.getComponent());
+				operationsMenu.setLocation(e.getLocationOnScreen());
+				operationsMenu.setVisible(true);
+			}
 		});
 	}
 

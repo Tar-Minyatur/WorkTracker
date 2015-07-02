@@ -10,6 +10,8 @@
 
 package de.tshw.worktracker.view;
 
+import de.tshw.worktracker.model.WorkTracker;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,8 +21,11 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ResourceBundle;
 
 public class SwingViewAboutDialog extends JDialog {
+
+	private static final String RESOURCE_BUNDLE = "i18n/swingViewAbout";
 
 	private JPanel  contentPane;
 	private JButton buttonOK;
@@ -28,23 +33,32 @@ public class SwingViewAboutDialog extends JDialog {
 	private JLabel  famfamfamLabel;
 	private JLabel  homepageLabel;
 	private JLabel  authorLabel;
+	private JLabel versionLabel;
 
 	private Desktop desktop;
 
 	public SwingViewAboutDialog( JFrame frame ) {
 		super(frame);
-		setContentPane(contentPane);
-		setModal(true);
-		setResizable(false);
-		getRootPane().setDefaultButton(buttonOK);
-		setTitle("About WorkTracker");
-		pack();
+
+		ResourceBundle resourceBundle = ResourceBundle.getBundle(RESOURCE_BUNDLE);
 
 		if ( Desktop.isDesktopSupported() ) {
 			desktop = Desktop.getDesktop();
 		}
 
+		updateInformation();
 		setupActions();
+
+		setContentPane(contentPane);
+		setModal(true);
+		setResizable(false);
+		getRootPane().setDefaultButton(buttonOK);
+		setTitle(resourceBundle.getString("title"));
+		pack();
+	}
+
+	private void updateInformation() {
+		versionLabel.setText(WorkTracker.VERSION);
 	}
 
 	private void setupActions() {

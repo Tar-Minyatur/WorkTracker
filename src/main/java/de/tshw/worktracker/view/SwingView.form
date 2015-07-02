@@ -245,7 +245,7 @@
           <component id="3e40d" class="javax.swing.JButton" binding="dataBrowserButton">
             <constraints/>
             <properties>
-              <icon value="icons/table.png"/>
+              <icon value="icons/report_magnify.png"/>
               <text value=""/>
               <toolTipText resource-bundle="i18n/swingView" key="open.project.and.work.log.manager"/>
             </properties>
@@ -263,12 +263,12 @@
               <toolTipText resource-bundle="i18n/swingView" key="about.worktracker"/>
             </properties>
           </component>
-          <component id="f0089" class="javax.swing.JButton" binding="quitButton">
+          <component id="f0089" class="javax.swing.JButton" binding="operationsButton">
             <constraints/>
             <properties>
-              <icon value="icons/door.png"/>
+              <icon value="icons/settings.png"/>
               <text value=""/>
-              <toolTipText resource-bundle="i18n/swingView" key="quit"/>
+              <toolTipText resource-bundle="i18n/swingView" key="operations.menu"/>
             </properties>
           </component>
         </children>
