@@ -20,9 +20,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 public class SwingView implements WorkTrackerView {
 
+	private static final String RESOURCE_BUNDLE = "i18n/swingView";
 	private final TimeEntriesTableModel       entriesTableModel;
 	private final IncompleteEntriesTableModel incompleteEntriesTableModel;
 	private final SwingViewHelper swingViewHelper = new SwingViewHelper();
@@ -48,6 +50,8 @@ public class SwingView implements WorkTrackerView {
 	private WorkTrackerController controller;
 	private JFrame                frame;
 
+	private ResourceBundle resourceBundle;
+
 	public SwingView( WorkTracker workTracker, WorkTrackerController controller ) {
 		this.workTracker = workTracker;
 		this.controller = controller;
@@ -60,6 +64,8 @@ public class SwingView implements WorkTrackerView {
 
 		commentTextField.setBorder(null);
 		commentFieldPanel.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+
+		resourceBundle = ResourceBundle.getBundle(RESOURCE_BUNDLE);
 
 		configureTables(workTracker, controller);
 		setupIncompleteEntryActions();
@@ -94,14 +100,14 @@ public class SwingView implements WorkTrackerView {
 	private void setupIncompleteEntryActions() {
 		deleteIncompleteEntryButton.addActionListener(( ActionEvent e ) -> {
 			JOptionPane.showMessageDialog(workTrackerPanel,
-										  "Sorry, so far I've been to lazy to implement this. :-)",
-										  "Missing Feature!", JOptionPane.ERROR_MESSAGE);
+										  resourceBundle.getString("missing.feature"),
+										  resourceBundle.getString("missing.feature.title"), JOptionPane.ERROR_MESSAGE);
 		});
 
 		editIncompleteEntryButton.addActionListener(( ActionEvent e ) -> {
 			JOptionPane.showMessageDialog(workTrackerPanel,
-										  "Sorry, so far I've been to lazy to implement this. :-)",
-										  "Missing Feature!", JOptionPane.ERROR_MESSAGE);
+										  resourceBundle.getString("missing.feature"),
+										  resourceBundle.getString("missing.feature.title"), JOptionPane.ERROR_MESSAGE);
 		});
 	}
 
@@ -161,7 +167,7 @@ public class SwingView implements WorkTrackerView {
 
 	private void setupBottomToolBarActions() {
 		addProjectButton.addActionListener(( ActionEvent e ) -> {
-			String name = JOptionPane.showInputDialog(workTrackerPanel, "Enter Project Name");
+			String name = JOptionPane.showInputDialog(workTrackerPanel, resourceBundle.getString("enter.project.name"));
 			if ( ( name != null ) && !name.isEmpty() ) {
 				controller.addProject(name);
 			}
@@ -170,8 +176,8 @@ public class SwingView implements WorkTrackerView {
 
 		dataBrowserButton.addActionListener(( ActionEvent e ) -> {
 			JOptionPane.showMessageDialog(workTrackerPanel,
-										  "Sorry, so far I've been to lazy to implement this. :-)",
-										  "Missing Feature!", JOptionPane.ERROR_MESSAGE);
+										  resourceBundle.getString("missing.feature"),
+										  resourceBundle.getString("missing.feature.title"), JOptionPane.ERROR_MESSAGE);
 		});
 
 		infoButton.addActionListener(e -> new SwingViewAboutDialog(frame).setVisible(true));

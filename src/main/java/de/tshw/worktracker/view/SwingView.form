@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="workTrackerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="324" height="364"/>
+      <xy x="20" y="20" width="329" height="364"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -27,21 +27,21 @@
             </constraints>
             <properties>
               <background color="-22670"/>
+              <visible value="false"/>
             </properties>
             <border type="empty">
               <size top="8" left="8" bottom="8" right="8"/>
             </border>
             <children>
-              <component id="8b30" class="javax.swing.JLabel" binding="incompleteEntriesHint">
+              <component id="be49" class="javax.swing.JLabel" binding="incompleteEntriesHint">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <focusable value="false"/>
                   <icon value="icons/exclamation.png"/>
                   <opaque value="false"/>
-                  <text value="&lt;html&gt;These time entries have not been completed:&lt;/html&gt;"/>
-                  <verticalAlignment value="1"/>
-                  <verticalTextPosition value="1"/>
+                  <text resource-bundle="i18n/swingView" key="incomplete.time.entries"/>
                 </properties>
               </component>
               <scrollpane id="3b399">
@@ -88,7 +88,7 @@
                       <icon value="icons/time_delete.png"/>
                       <opaque value="true"/>
                       <text value=""/>
-                      <toolTipText value="Delete selected entry"/>
+                      <toolTipText resource-bundle="i18n/swingView" key="delete.selected.entry"/>
                     </properties>
                   </component>
                   <component id="91271" class="javax.swing.JButton" binding="editIncompleteEntryButton">
@@ -97,7 +97,7 @@
                       <icon value="icons/time_edit.png"/>
                       <opaque value="true"/>
                       <text value=""/>
-                      <toolTipText value="Edit selected entry"/>
+                      <toolTipText resource-bundle="i18n/swingView" key="edit.selected.entry"/>
                     </properties>
                   </component>
                 </children>
@@ -145,7 +145,7 @@
                 </constraints>
                 <properties>
                   <icon value="icons/time.png"/>
-                  <text value="Total Time Today:"/>
+                  <text resource-bundle="i18n/swingView" key="total.time.today"/>
                 </properties>
               </component>
               <component id="c1745" class="javax.swing.JLabel" binding="totalTimeTodayLabel">
@@ -178,7 +178,7 @@
             <properties>
               <icon value="icons/project_add.png"/>
               <text value=""/>
-              <toolTipText value="Add New Project"/>
+              <toolTipText resource-bundle="i18n/swingView" key="add.new.project"/>
             </properties>
           </component>
           <component id="572ae" class="javax.swing.JToolBar$Separator">
@@ -191,7 +191,7 @@
               <icon value="icons/comment.png"/>
               <labelFor value="9ea0"/>
               <text value=" "/>
-              <toolTipText value="Add/Change Comment"/>
+              <toolTipText resource-bundle="i18n/swingView" key="add.change.comment"/>
             </properties>
           </component>
           <grid id="c5c36" binding="commentFieldPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -208,7 +208,7 @@
                 </constraints>
                 <properties>
                   <opaque value="false"/>
-                  <toolTipText value="Add/Edit comment for current work log entry"/>
+                  <toolTipText resource-bundle="i18n/swingView" key="add.edit.comment.for.current.entry"/>
                 </properties>
               </component>
               <component id="a24c7" class="javax.swing.JLabel" binding="commentConfirmLabel">
@@ -233,7 +233,7 @@
                 <properties>
                   <enabled value="false"/>
                   <font swing-font="TextField.font"/>
-                  <text value="Add a comment..."/>
+                  <text resource-bundle="i18n/swingView" key="add.a.comment"/>
                 </properties>
               </component>
             </children>
@@ -247,7 +247,7 @@
             <properties>
               <icon value="icons/table.png"/>
               <text value=""/>
-              <toolTipText value="Open project and work log manager"/>
+              <toolTipText resource-bundle="i18n/swingView" key="open.project.and.work.log.manager"/>
             </properties>
           </component>
           <component id="26bfb" class="javax.swing.JToolBar$Separator">
@@ -260,7 +260,7 @@
               <icon value="icons/information.png"/>
               <inheritsPopupMenu value="false"/>
               <text value=""/>
-              <toolTipText value="About WorkTracker"/>
+              <toolTipText resource-bundle="i18n/swingView" key="about.worktracker"/>
             </properties>
           </component>
           <component id="f0089" class="javax.swing.JButton" binding="quitButton">
@@ -268,7 +268,7 @@
             <properties>
               <icon value="icons/door.png"/>
               <text value=""/>
-              <toolTipText value="Quit"/>
+              <toolTipText resource-bundle="i18n/swingView" key="quit"/>
             </properties>
           </component>
         </children>

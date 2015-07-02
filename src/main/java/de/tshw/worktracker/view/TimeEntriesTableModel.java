@@ -23,12 +23,17 @@ import org.joda.time.format.PeriodFormatterBuilder;
 import javax.swing.table.AbstractTableModel;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 public class TimeEntriesTableModel extends AbstractTableModel {
 
-	private final static String[]   COLUMN_NAMES = new String[]{ "Project", "Time" };
 	private final static Class<?>[] COLUMN_TYPES = new Class<?>[]{ Project.class, String.class };
+	private static       ResourceBundle resourceBundle =
+			ResourceBundle.getBundle("i18n/swingView");
+	private final static String[]       COLUMN_NAMES   =
+			new String[]{ resourceBundle.getString("column.project"),
+						  resourceBundle.getString("column.time") };
 	private WorkTracker          workTracker;
 	private Map<Project, Period> elapsedTimes;
 	private PeriodFormatter      periodFormatter;

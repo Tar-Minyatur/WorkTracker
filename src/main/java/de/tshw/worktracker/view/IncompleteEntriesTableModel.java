@@ -19,16 +19,23 @@ import org.joda.time.format.DateTimeFormatter;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class IncompleteEntriesTableModel extends AbstractTableModel {
 
-	private final static String[]   COLUMN_NAMES = new String[]{ "Project", "Date", "Start Time" };
 	private final static Class<?>[] COLUMN_TYPES =
 			new Class<?>[]{ Project.class, String.class, String.class };
-
+	private static       ResourceBundle resourceBundle =
+			ResourceBundle.getBundle("i18n/swingView");
+	private final static String[]       COLUMN_NAMES   =
+			new String[]{ resourceBundle.getString("column.project"),
+						  resourceBundle.getString("column.date"),
+						  resourceBundle.getString("column.start.time") };
 	private WorkTracker workTracker;
-	private DateTimeFormatter dateFormatter      = DateTimeFormat.forPattern("dd.MM.");
-	private DateTimeFormatter startTimeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
+	private DateTimeFormatter dateFormatter      =
+			DateTimeFormat.forPattern(resourceBundle.getString("date.pattern.day.month"));
+	private DateTimeFormatter startTimeFormatter =
+			DateTimeFormat.forPattern(resourceBundle.getString("date.pattern.time"));
 
 	public IncompleteEntriesTableModel( WorkTracker workTracker ) {
 		this.workTracker = workTracker;
