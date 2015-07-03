@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="workTrackerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="329" height="364"/>
+      <xy x="20" y="20" width="261" height="204"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -35,7 +35,7 @@
             <children>
               <component id="be49" class="javax.swing.JLabel" binding="incompleteEntriesHint">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <focusable value="false"/>
@@ -46,7 +46,7 @@
               </component>
               <scrollpane id="3b399">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="300" height="100"/>
                   </grid>
                 </constraints>
@@ -69,7 +69,7 @@
               </scrollpane>
               <toolbar id="82932">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="-1" height="20"/>
                   </grid>
                 </constraints>
@@ -104,7 +104,7 @@
               </toolbar>
             </children>
           </grid>
-          <grid id="e0028" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="e0028" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <splitpane position="right"/>
@@ -116,7 +116,7 @@
             <children>
               <scrollpane id="300fa" binding="tableScrollPane">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="300" height="200"/>
                   </grid>
                 </constraints>
@@ -141,7 +141,7 @@
               </scrollpane>
               <component id="526fe" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <icon value="icons/time.png"/>
@@ -150,7 +150,7 @@
               </component>
               <component id="c1745" class="javax.swing.JLabel" binding="totalTimeTodayLabel">
                 <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <horizontalAlignment value="4"/>
@@ -163,7 +163,7 @@
       </splitpane>
       <toolbar id="73f9f" binding="bottomToolBar">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="20"/>
           </grid>
         </constraints>
@@ -189,54 +189,15 @@
             <constraints/>
             <properties>
               <icon value="icons/comment.png"/>
-              <labelFor value="9ea0"/>
               <text value=" "/>
               <toolTipText resource-bundle="i18n/swingView" key="add.change.comment"/>
             </properties>
           </component>
-          <grid id="c5c36" binding="commentFieldPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="1" left="1" bottom="1" right="1"/>
+          <grid id="3a5b1" binding="commentFieldPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints/>
-            <properties>
-              <background color="-1"/>
-            </properties>
-            <border type="bevel-lowered"/>
-            <children>
-              <component id="9ea0" class="javax.swing.JTextField" binding="commentTextField">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <opaque value="false"/>
-                  <toolTipText resource-bundle="i18n/swingView" key="add.edit.comment.for.current.entry"/>
-                </properties>
-              </component>
-              <component id="a24c7" class="javax.swing.JLabel" binding="commentConfirmLabel">
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="16" height="16"/>
-                    <preferred-size width="16" height="16"/>
-                    <maximum-size width="16" height="16"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                  <icon value="icons/confirmed.png"/>
-                  <text value=""/>
-                  <visible value="false"/>
-                </properties>
-              </component>
-              <component id="c79f0" class="javax.swing.JLabel" binding="commentFieldPlaceholder">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <enabled value="false"/>
-                  <font swing-font="TextField.font"/>
-                  <text resource-bundle="i18n/swingView" key="add.a.comment"/>
-                </properties>
-              </component>
-            </children>
+            <properties/>
+            <border type="none"/>
+            <children/>
           </grid>
           <component id="92b49" class="javax.swing.JToolBar$Separator">
             <constraints/>

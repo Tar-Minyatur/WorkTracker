@@ -35,7 +35,9 @@ public class Main {
 		WorkTracker workTracker = new WorkTracker(pauseProject);
 		WorkTrackerController controller = new WorkTrackerController(workTracker, projectDAO, workLogEntryDAO);
 
-		controller.registerView(new SwingView(workTracker, controller));
+		SwingView swingView = new SwingView(workTracker, controller);
+		controller.registerView(swingView);
+		swingView.showView();
 	}
 
 }

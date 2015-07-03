@@ -12,13 +12,16 @@ package de.tshw.worktracker.view;
 
 import de.tshw.worktracker.controller.WorkTrackerController;
 import de.tshw.worktracker.model.Project;
+import de.tshw.worktracker.model.WorkLogEntry;
 import de.tshw.worktracker.model.WorkTracker;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,7 +30,6 @@ public class SwingView implements WorkTrackerView {
 	private static final String RESOURCE_BUNDLE = "i18n/swingView";
 	private final TimeEntriesTableModel       entriesTableModel;
 	private final IncompleteEntriesTableModel incompleteEntriesTableModel;
-	private final SwingViewHelper swingViewHelper = new SwingViewHelper();
 	private JTable                entriesTable;
 	private JButton               addProjectButton;
 	private JScrollPane           tableScrollPane;
@@ -40,16 +42,14 @@ public class SwingView implements WorkTrackerView {
 	private JButton               editIncompleteEntryButton;
 	private JLabel                totalTimeTodayLabel;
 	private JTextField            commentTextField;
-	private JButton    operationsButton;
+	private JButton               operationsButton;
 	private JButton               infoButton;
 	private JButton               dataBrowserButton;
-	private JLabel                commentConfirmLabel;
-	private JLabel                commentFieldPlaceholder;
 	private JPanel                commentFieldPanel;
 	private WorkTracker           workTracker;
 	private WorkTrackerController controller;
 	private JFrame                frame;
-	private JPopupMenu operationsMenu;
+	private JPopupMenu            operationsMenu;
 
 	private ResourceBundle resourceBundle;
 
@@ -63,17 +63,13 @@ public class SwingView implements WorkTrackerView {
 		incompleteEntriesTableModel = new IncompleteEntriesTableModel(workTracker);
 		this.incompleteEntriesTable.setModel(incompleteEntriesTableModel);
 
-		commentTextField.setBorder(null);
-		commentFieldPanel.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-
 		resourceBundle = ResourceBundle.getBundle(RESOURCE_BUNDLE);
 
 		configureTables(workTracker, controller);
 		setupIncompleteEntryActions();
 		setupEntriesTableActions();
-		setupCommentTextFieldActions();
+		setupCommentField();
 		setupBottomToolBarActions();
-		showView();
 	}
 
 	private void configureTables( WorkTracker workTracker, WorkTrackerController controller ) {
@@ -124,46 +120,15 @@ public class SwingView implements WorkTrackerView {
 		});
 	}
 
-	private void setupCommentTextFieldActions() {
-		// TODO Extract this special text field into its own class and encapsulate it properly
-		commentFieldPanel.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained( FocusEvent e ) {
-				commentTextField.grabFocus();
-				commentFieldPlaceholder.setVisible(false);
-			}
+	private void setupCommentField() {
+		commentTextField = new JTextFieldWithPlaceholder(resourceBundle.getString("add.a.comment"));
+		JComponentWithActionFeedback feedbackComponent = new JComponentWithActionFeedback();
+		feedbackComponent.add(commentTextField);
+		feedbackComponent.setAction(component -> {
+			controller.changeComment(commentTextField.getText());
+			return true;
 		});
-
-		commentFieldPanel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked( MouseEvent e ) {
-				if ( ( e.getButton() == MouseEvent.BUTTON1 ) && !commentTextField.hasFocus() ) {
-					commentTextField.grabFocus();
-				}
-			}
-		});
-
-		commentTextField.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained( FocusEvent e ) {
-				commentFieldPlaceholder.setVisible(false);
-			}
-
-			@Override
-			public void focusLost( FocusEvent e ) {
-				if ( commentTextField.getText().isEmpty() ) {
-					commentFieldPlaceholder.setVisible(true);
-				}
-			}
-		});
-
-		commentTextField.addActionListener(( ActionEvent e ) -> {
-			JTextField textField = (JTextField) e.getSource();
-			String comment = textField.getText();
-			controller.changeComment(comment);
-			frame.requestFocusInWindow();
-			swingViewHelper.flashComponent(commentConfirmLabel);
-		});
+		commentFieldPanel.add(feedbackComponent);
 	}
 
 	private void setupBottomToolBarActions() {
@@ -205,18 +170,15 @@ public class SwingView implements WorkTrackerView {
 		});
 		operationsMenu.add(menuItem);
 
-		operationsButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked( MouseEvent e ) {
-				super.mouseClicked(e);
-				operationsMenu.setInvoker(e.getComponent());
-				operationsMenu.setLocation(e.getLocationOnScreen());
-				operationsMenu.setVisible(true);
-			}
+		operationsButton.addActionListener(( ActionEvent e ) -> {
+			JComponent source = (JComponent) e.getSource();
+			operationsMenu.setInvoker(source);
+			operationsMenu.setLocation(source.getLocationOnScreen());
+			operationsMenu.setVisible(true);
 		});
 	}
 
-	private void showView() {
+	public void showView() {
 		frame = new JFrame("WorkTracker");
 		frame.setContentPane(this.workTrackerPanel);
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -232,6 +194,7 @@ public class SwingView implements WorkTrackerView {
 			}
 		});
 		frame.setAlwaysOnTop(true);
+		frame.setMinimumSize(new Dimension(290, 330));
 		frame.setVisible(true);
 	}
 
@@ -247,18 +210,20 @@ public class SwingView implements WorkTrackerView {
 		}
 		totalTimeTodayLabel.setText(totalTimeToday);
 
-		if ( !commentTextField.hasFocus() ) {
-			String comment = workTracker.getCurrentLogEntry().getComment();
+		WorkLogEntry currentLogEntry = workTracker.getCurrentLogEntry();
+		Project currentProject = ( currentLogEntry == null ) ? null : currentLogEntry.getProject();
+
+		if ( ( currentProject == null ) && !commentTextField.hasFocus() ) {
+			String comment = currentLogEntry.getComment();
 			commentTextField.setText(comment);
-			commentFieldPlaceholder.setVisible(( comment == null ) || comment.isEmpty());
 		}
 
-		frame.setTitle("WorkTracker | " + workTracker.getCurrentLogEntry().getProject());
+		frame.setTitle("WorkTracker" + ( ( currentLogEntry == null ) ? "" : " | " + currentProject ));
 
 		if ( entriesTable.getSelectedRow() == -1 ) {
 			int index = 0;
 			for ( Project project : workTracker.getProjects() ) {
-				if ( project == workTracker.getCurrentLogEntry().getProject() ) {
+				if ( project == currentProject ) {
 					break;
 				}
 				index++;
