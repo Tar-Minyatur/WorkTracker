@@ -16,7 +16,7 @@
     <groupId>de.tshw</groupId>
     <artifactId>worktracker</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-preview2</version>
 
     <name>WorkTracker</name>
     <description>
@@ -63,7 +63,7 @@
     <scm>
         <connection>scm:git:git@github.com:Tar-Minyatur/WorkTracker.git</connection>
         <developerConnection>scm:git:git@github.com:Tar-Minyatur/WorkTracker.git</developerConnection>
-        <tag>master</tag>
+        <tag>release-1.0</tag>
         <url>https://github.com/Tar-Minyatur/WorkTracker</url>
     </scm>
 
